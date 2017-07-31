@@ -1,4 +1,7 @@
 ---
+- homebrew_tap:
+    name: caskroom/cask
+
 - name: Install Brew packages
   homebrew:
     name: "{{ item }}"
@@ -7,10 +10,12 @@
     - meld
     - git
     - wget
-    - caskroom/cask
+    - brew-cask
 
-- name: Install via cask
-  command: "brew cask install {{ item }}" 
+- name: Install via brew cask
+  homebrew_cask: 
+    name: "{{ item }}"
+    state: present 
   with_items:
     - postman
     - visual-studio-code
