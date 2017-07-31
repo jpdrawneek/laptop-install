@@ -1,0 +1,5 @@
+---
+
+- name: Install Mac Hashicorp tools
+  include: mac.yml
+  when: ansible_distribution == 'MacOSX'

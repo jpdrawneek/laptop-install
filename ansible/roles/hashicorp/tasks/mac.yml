@@ -1,0 +1,8 @@
+---
+- name: Install Hashicorp tools
+  unarchive:
+    src: "{{ item }}"
+    dest: /usr/local/bin
+  with_items:
+    - https://releases.hashicorp.com/packer/1.0.3/packer_1.0.3_darwin_amd64.zip
+    - https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_darwin_amd64.zip
