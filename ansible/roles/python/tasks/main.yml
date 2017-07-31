@@ -1,0 +1,10 @@
+---
+- pip:
+    name: "{{ item }}"
+    extra_args: "--user"
+  with_items:
+    - awscli
+    - bzt
+    - jenkins-job-builder
+    - troposphere
+

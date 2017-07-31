@@ -1,0 +1,14 @@
+---
+- name: Install Brew packages
+  homebrew:
+    name: {{ items }}
+    state: present
+  with_items:
+    - meld
+
+
+https://dl.pstmn.io/download/latest/osx
+https://releases.hashicorp.com/packer/1.0.3/packer_1.0.3_darwin_amd64.zip
+https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_darwin_amd64.zip
+https://go.microsoft.com/fwlink/?LinkID=620882
+

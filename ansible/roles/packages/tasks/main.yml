@@ -1,0 +1,5 @@
+---
+
+- name: Install Mac tools
+  include: mac.yml
+  when: ansible_distribution == 'MacOSX'
