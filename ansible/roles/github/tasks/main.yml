@@ -1,0 +1,15 @@
+---
+- name: Who Am I
+  local_action: command whoami
+  register: username_on_host
+  become: no
+
+- debug: var=username_on_the_host
+
+- name: Set User SSH-Key
+  user:
+    name: "{{ username_on_the_host.stdout }}"
+    generate_ssh: yes
+    ssh_key_bits: 4096
+    ssh_key_file: .ssh/id_rsa
+    ssh_key_passphrase: "{{ sshkey_password }}"
