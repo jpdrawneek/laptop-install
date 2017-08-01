@@ -7,16 +7,42 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - meld
     - git
     - wget
-    - brew-cask
+    - cask
+    - brew-cask-completion
+
+- name: Install SRE Brew packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - packer
+    - terraform
+    - terraform-provisioner-ansible
+    - terraform-inventory
+  when: install_type == 'sre'
+
+- name: Install PHP Brew packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - homebrew/php/php71
+    - homebrew/php/php71-geoip
+    - homebrew/php/php71-libsodium
+    - homebrew/php/php71-igbinary
+    - homebrew/php/php71-memcached
+    - homebrew/php/php71-xdebug
+    - homebrew/php/php71-redis
+  when: install_type == 'php'
 
 - name: Install via brew cask
   homebrew_cask: 
     name: "{{ item }}"
     state: present 
   with_items:
+    - meld
     - postman
     - visual-studio-code
     - slack

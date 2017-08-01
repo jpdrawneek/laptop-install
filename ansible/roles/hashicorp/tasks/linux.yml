@@ -1,0 +1,8 @@
+---
+- name: Install Hashicorp tools
+  unarchive:
+    src: "{{ item }}"
+    dest: /usr/local/bin
+  with_items:
+    - "https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_amd64.zip"
+    - "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"

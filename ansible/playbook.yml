@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  vars:
+    install_type: sre
   roles:
     - packages
     - python
